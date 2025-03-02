@@ -442,6 +442,11 @@ pub const SecretKey = struct {
 
         const hash = hasher.finalResult();
 
+        return self.signHash(hash);
+    }
+
+    /// Schnorr Signature on Message
+    pub fn signHash(self: *const SecretKey, hash: [32]u8) !schnorr_lib.Signature {
         var secp = Secp256k1.genNew();
         defer secp.deinit();
 
