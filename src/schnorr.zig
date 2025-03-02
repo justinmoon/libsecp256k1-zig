@@ -34,6 +34,15 @@ pub const Signature = struct {
     pub inline fn toStr(self: *const Signature) [constants.schnorr_signature_size * 2]u8 {
         return std.fmt.bytesToHex(self.inner, .lower);
     }
+
+    // pub fn jsonStringify(self: Signature, options: std.json.StringifyOptions, out: anytype) !void {
+    //     try std.json.stringify(self.toStr(), options, out);
+    // }
+
+    // pub fn jsonParse(_: std.mem.Allocator, source: std.json.Value, _: std.json.ParseOptions) !Signature {
+    //     const hex_string = try source.string();
+    //     return Signature.fromStr(hex_string);
+    // }
 };
 
 pub const Secp = struct {

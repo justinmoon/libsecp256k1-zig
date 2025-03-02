@@ -172,6 +172,24 @@ pub const XOnlyPublicKey = struct {
 
         return PublicKey.fromSlice(&buf) catch @panic("buffer is valid");
     }
+
+    // /// JSON stringify method for XOnlyPublicKey
+    // pub fn jsonStringify(self: *const XOnlyPublicKey, out: anytype) !void {
+    //     const serialized = self.serialize();
+    //     try out.write(std.fmt.bytesToHex(&serialized, .lower));
+    // }
+
+    // /// JSON parse method for XOnlyPublicKey
+    // pub fn jsonParse(_: std.mem.Allocator, source: anytype, _: std.json.ParseOptions) !@This() {
+    //     return switch (try source.next()) {
+    //         .string => |s| {
+    //             var buf: [32]u8 = undefined;
+    //             const bytes = std.fmt.hexToBytes(&buf, s) catch return error.UnexpectedToken;
+    //             return XOnlyPublicKey.fromSlice(bytes) catch error.UnexpectedToken;
+    //         },
+    //         else => return error.UnexpectedToken,
+    //     };
+    // }
 };
 
 pub const Secp256k1 = struct {
